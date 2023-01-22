@@ -22,7 +22,7 @@ const CustomForm = ({ addTask }) => {
       onSubmit={handleFormSubmit}
       >
       <div className="wrapper">
-        <input
+      <input
           type="text"
           id="task"
           className="input"
