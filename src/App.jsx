@@ -7,15 +7,16 @@ import useLocalStorage from './hooks/useLocalStorage'
 import CustomForm from './components/CustomForm'
 import EditForm from './components/EditForm'
 import TaskList from './components/TaskList'
+import ThemeSwitcher from './components/ThemeSwitcher'
 
 function App() {
   const [tasks, setTasks] = useLocalStorage('react-todo.tasks', []);
   const [previousFocusEl, setPreviousFocusEl] = useState(null);
-  const [editedTask, setEditedTask] = useState([null]);
+  const [editedTask, setEditedTask] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
   const addTask = (task) => {
-    setTasks(prevState => [ ... prevState, task])
+    setTasks(prevState => [...prevState, task])
   }
 
   const deleteTask = (id) => {
@@ -64,7 +65,7 @@ function App() {
           />
         )
       }
-      <CustomForm addTask={addTask} />
+      <CustomForm addTask={addTask}/>
       {tasks && (
         <TaskList
           tasks={tasks}
@@ -73,6 +74,7 @@ function App() {
           enterEditMode={enterEditMode}
         />
       )}
+      <ThemeSwitcher />
     </div>
   )
 }
